@@ -1,8 +1,10 @@
 package com.example.izzy.sprinter.Activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -31,6 +33,7 @@ import com.parse.SaveCallback;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -64,6 +67,11 @@ public class MainActivity extends Activity {
             //Do nothing ID has already been generated
         }
         userKey = prefs.getString("idKey", "");
+
+        if(AccessToken.getCurrentAccessToken() != null){
+            Intent intent = new Intent(MainActivity.this,HomeActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -100,9 +108,56 @@ public class MainActivity extends Activity {
                     public void done(final ParseUser user, ParseException err) {
                         if (user == null) {
                             Log.d("MyApp", "Uh oh. The user cancelled the Facebook login.");
+                            Intent intent = new Intent(MainActivity.this,HomeActivity.class);
+                            startActivity(intent);
                         } else if (user.isNew()) {
                             Log.d("MyApp", "User signed up and logged in through Facebook!");
-                            makeMeRequest();
+                            // Set up choose sports button click handler
+                            AlertDialog dialog;
+                            final CharSequence[] sports = {" Bicycle "," Squash "," Swimming "," Jogging ", "Bodybuilding ", " Zumba "};
+                            // arraylist to keep the selected items
+                            final ArrayList selectedSports = new ArrayList();
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                            builder.setTitle("Select Your Favorite Sports");
+                            builder.setMultiChoiceItems(sports, null,
+                                    new DialogInterface.OnMultiChoiceClickListener() {
+                                        // sportSelected contains the index of item (of which checkbox checked)
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int indexSelected,
+                                                            boolean isChecked) {
+                                            if (isChecked) {
+                                                // If the user checked the sport, add it to the selected items
+                                                // write your code when user checked the checkbox
+                                                selectedSports.add(indexSelected);
+
+                                            } else if (selectedSports.contains(indexSelected)) {
+                                                // Else, if the sport is already in the array, remove it
+                                                // write your code when user Uchecked the checkbox
+                                                selectedSports.remove(Integer.valueOf(indexSelected));
+                                            }
+                                        }
+                                    })
+                                    // Set the action buttons
+                                    .setPositiveButton("Done", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            //  Your code when user clicked on OK
+                                            //  You can write the code  to save the selected item here
+
+                                            makeMeRequest();
+                                        }
+                                    })
+                                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            //  Your code when user clicked on Cancel
+
+                                        }
+                                    });
+
+                            dialog = builder.create();//AlertDialog dialog; create like this outside onClick
+                            dialog.show();
                         } else {
                             Log.d("MyApp", "User logged in through Facebook!");
                             Intent intent = new Intent(MainActivity.this,HomeActivity.class);

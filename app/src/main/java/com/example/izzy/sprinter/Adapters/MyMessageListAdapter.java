@@ -30,8 +30,8 @@ public class MyMessageListAdapter extends ArrayAdapter<MessageContent> {
     }
 
     public static int getImageId(Context context, String imageName) {
-        //return R.drawable.profile1;
-        return context.getResources().getIdentifier("drawable/" + imageName, null, context.getPackageName());
+        return R.drawable.profile1;
+        //return context.getResources().getIdentifier("drawable/" + imageName, null, context.getPackageName());
     }
 
     @Override
