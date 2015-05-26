@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:id="@+id/rl_messageList"
+    android:layout_height="match_parent">tex
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Group Title"
+        android:gravity="center"
+        android:paddingTop="15dp"
+        android:paddingBottom="20dp"
+        android:id="@+id/tv_group_title"
+        style="@style/Base.TextAppearance.AppCompat.Title"
+        android:textStyle="bold" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_group_title"
+        android:layout_above="@+id/bt_add_activity"
+
+
+        android:id="@+id/lv_massages">
+
+
+        </ListView>
+
+    <Button
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+
+
+        android:id="@+id/bt_add_activity"
+        android:text="Add New Activity"
+        android:background="@drawable/rounded_corner"
+        android:layout_marginBottom="12dp"
+
+
+
+
+        android:layout_alignParentBottom="true"
+
+        android:gravity="center"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

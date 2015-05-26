@@ -1,0 +1,131 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llSend"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:background="#ffffff"
+    android:paddingBottom="10dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="5dp"
+    >
+
+    <TextView
+
+            android:id="@+id/tv_title_in_messages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+            android:layout_alignParentTop="true"
+            android:text="hi, anyone wants "
+        android:textStyle="bold|italic"
+        style="@style/Base.TextAppearance.AppCompat.Title" />
+
+
+    <TextView
+        android:id="@+id/tv_time_in_messages"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time: 14:45"
+        android:layout_below="@+id/tv_title_in_messages"
+
+       />
+
+
+    <TextView
+        android:id="@+id/tv_location_in_messages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Location: Haifa"
+
+        android:layout_below="@+id/tv_level"
+        android:layout_toRightOf="@+id/tv_time_in_messages"
+        android:layout_toEndOf="@+id/tv_time_in_messages"
+        android:layout_marginLeft="45dp"
+        android:layout_marginStart="45dp" />
+
+
+        <TextView
+            android:id="@+id/GroupSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="Group: 4/5"
+            android:layout_below="@+id/tv_time_in_messages"
+            android:layout_alignParentLeft="true"
+           />
+
+        <TextView
+            android:id="@+id/tv_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Level: Hard"
+            android:layout_below="@+id/tv_title_in_messages"
+            android:layout_alignLeft="@+id/tv_location_in_messages"
+            android:layout_alignStart="@+id/tv_location_in_messages" />
+
+
+
+            <ListView
+                android:id="@+id/lvChat"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/GroupSize"
+                android:paddingTop="10dp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+
+                  android:background="@drawable/rounded_corner"
+                android:transcriptMode="alwaysScroll"
+                android:layout_above="@+id/etMessage" />
+
+
+
+
+
+
+
+
+            <EditText
+                android:id="@+id/etMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_alignBottom="@+id/btSend"
+                android:layout_toLeftOf="@+id/btSend"
+                android:gravity="top"
+                android:singleLine="true"
+                android:hint="Enter massage here"
+                android:imeOptions="actionSend"
+                android:inputType="textShortMessage"
+                android:layout_alignTop="@+id/btSend" />
+
+            <Button
+                android:id="@+id/btSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|right"
+                android:layout_marginRight="8dp"
+                android:paddingRight="10dp"
+                android:text="@string/send"
+                android:textSize="18sp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"></Button>
+
+
+
+
+
+
+</RelativeLayout>
