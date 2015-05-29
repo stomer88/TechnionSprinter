@@ -21,7 +21,6 @@ import com.spring15.sprinter.technion.technionsprinter.R;
 import com.spring15.sprinter.technion.technionsprinter.Repositories.GroupRepository;
 
 public class Messages extends Fragment {
-    public static final String ARG_MENU_NUMBER = "menu_number";
 
     public Messages() {
         // Empty constructor required for fragment subclasses
@@ -34,7 +33,7 @@ public class Messages extends Fragment {
         // Fragment Preparation
         final View rootView = inflater.inflate(R.layout.fragment_categories, container,
                 false);
-        int i = getArguments().getInt(ARG_MENU_NUMBER);
+        int i = getArguments().getInt(MainActivity.ARG_MENU_NUMBER);
 
         String groupObjectId = getArguments().getString("groupObjectId");
         if(groupObjectId == null) {

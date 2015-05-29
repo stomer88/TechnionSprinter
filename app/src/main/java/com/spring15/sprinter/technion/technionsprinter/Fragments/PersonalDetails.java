@@ -27,7 +27,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PersonalDetails extends Fragment {
-    public static final String ARG_MENU_NUMBER = "menu_number";
     public Dialog dialog;
     public CharSequence[] categories;
     final ArrayList<Integer> selectedCategories = new ArrayList<Integer>();
@@ -42,7 +41,7 @@ public class PersonalDetails extends Fragment {
 
         // Fragment Preparation
         View rootView = inflater.inflate(R.layout.fragment_personal_details, container, false);
-        int i = getArguments().getInt(ARG_MENU_NUMBER);
+        int i = getArguments().getInt(MainActivity.ARG_MENU_NUMBER);
         String menuTitle = getResources().getStringArray(R.array.menu_list)[i];
         getActivity().setTitle(menuTitle);
 

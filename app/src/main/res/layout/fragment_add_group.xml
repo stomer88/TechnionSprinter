@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?><LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingBottom="12dp"
+        android:paddingTop="15dp"
+        android:textColor="#4A8CFF"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="#4A8CFF" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:layout_marginLeft="10dp" />
+        <EditText
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter your title"
+            android:singleLine="true"
+            android:id="@+id/title" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Time" />
+        <EditText
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter the time"
+            android:inputType="time"
+            android:singleLine="true"
+            android:id="@+id/time" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Location" />
+        <EditText
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:hint="Enter your location"
+            android:id="@+id/location" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Level"/>
+        <Spinner
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/level"
+            android:entries="@array/difficult_array"
+            android:prompt="@string/Choose_Level"></Spinner>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Group size" />
+        <EditText
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:inputType="numberSigned"
+            android:hint="Enter number of participants"
+            android:id="@+id/maxSize" />
+    </LinearLayout>
+
+</LinearLayout>

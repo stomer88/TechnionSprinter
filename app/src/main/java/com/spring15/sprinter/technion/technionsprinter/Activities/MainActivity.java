@@ -218,7 +218,7 @@ public class MainActivity extends ActionBarActivity {
                 .replace(R.id.content_frame, fragment).commit();
 
         // update selected item and title, then close the drawer
-        setTitle(categoryName + " groups");
+        setTitle(categoryName + " activities");
     }
 
     public void goToGroupMessages(String title, String objectId) {

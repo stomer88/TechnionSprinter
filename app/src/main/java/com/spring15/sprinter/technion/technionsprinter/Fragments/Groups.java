@@ -1,5 +1,6 @@
 package com.spring15.sprinter.technion.technionsprinter.Fragments;
 
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,7 +29,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Groups extends Fragment {
-    public static final String ARG_MENU_NUMBER = "menu_number";
 
     public Groups() {
         // Empty constructor required for fragment subclasses
@@ -41,9 +41,11 @@ public class Groups extends Fragment {
         // Fragment Preparation
         final View rootView = inflater.inflate(R.layout.fragment_groups, container,
                 false);
-        int i = getArguments().getInt(ARG_MENU_NUMBER);
+        int i = getArguments().getInt(MainActivity.ARG_MENU_NUMBER);
+        final Button addActivityDialog = (Button) rootView.findViewById(R.id.addActivity);
+        addActivityDialog.setVisibility(View.INVISIBLE);
 
-        String categoryObjectId = getArguments().getString("categoryObjectId");
+        final String categoryObjectId = getArguments().getString("categoryObjectId");
         if(categoryObjectId == null) {
             String menuTitle = getResources().getStringArray(R.array.menu_list)[i];
             getActivity().setTitle(menuTitle);
@@ -74,21 +76,19 @@ public class Groups extends Fragment {
                         });
 
                         // On Item Click
-                        final Button addActivityDialog = (Button) rootView.findViewById(R.id.addActivity);
+                        addActivityDialog.setVisibility(View.VISIBLE);
                         addActivityDialog.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                GroupRepository.addGroup(new Group("New Group", "Haifa", 3, new Date(), 0, item));
+                                DialogFragment newFragment = AddGroup.newInstance(
+                                        categoryObjectId);
+                                newFragment.show(getFragmentManager(), "addGroup");
                             }
                         });
                     }
                 }
             });
         }
-
-        // Prepare Data for the View
-
-
 
 
         return rootView;
