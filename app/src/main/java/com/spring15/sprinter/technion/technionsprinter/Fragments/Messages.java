@@ -72,7 +72,7 @@ public class Messages extends Fragment {
                         listView.setAdapter(adapter);
 
                         // onclick listeners
-                        sendMessage.setOnClickListener(new View.OnClickListener() {
+                        sendButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 MessageRepository.addMessage(new Message(sendMessage.getText().toString(), item));
