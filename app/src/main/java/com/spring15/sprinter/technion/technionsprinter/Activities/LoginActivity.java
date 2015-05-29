@@ -26,6 +26,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.facebook.AccessToken;
 import com.facebook.FacebookSdk;
@@ -54,8 +55,6 @@ import java.util.List;
 
 
 public class LoginActivity extends Activity {
-        public CharSequence[] categories;
-        public AlertDialog dialog;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -80,15 +79,16 @@ public class LoginActivity extends Activity {
                         public void done(final ParseUser user, ParseException err) {
                             if (user == null) {
                                 Log.d("MyApp", "Uh oh. The user cancelled the Facebook login.");
+                                Toast.makeText(LoginActivity.this, "Facebook login failed!", Toast.LENGTH_LONG).show();
                             } else if (user.isNew()) {
                                 Log.d("MyApp", "User signed up and logged in through Facebook!");
                                 // Set up choose sports button click handler
-                                createDialog();
+                                newUserRequest();
                             } else {
                                 Log.d("MyApp", "User logged in through Facebook!");
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
-								finish();
+                                finish();
                             }
                         }
                     });
@@ -116,47 +116,8 @@ public class LoginActivity extends Activity {
         AppEventsLogger.deactivateApp(this);
     }
 
-    private void createDialog() {
-        ParseQuery<Category> query = ParseQuery.getQuery("Categories");
-        query.findInBackground(new FindCallback<Category>() {
-            public void done(List<Category> objects, ParseException e) {
-                if (e == null) {
-                    final ArrayList<Integer> selectedCategories = new ArrayList<Integer>();
-                    categories = new CharSequence[objects.size()];
-                    for(int j = 0; j < objects.size(); j++){
-                        categories[j] = objects.get(j).getName();
-                    }
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                    builder.setTitle("Select sports that you like");
-                    builder.setMultiChoiceItems(categories, null,
-                            new DialogInterface.OnMultiChoiceClickListener() {
-                                // sportSelected contains the index of item (of which checkbox checked)
-                                @Override
-                                public void onClick(DialogInterface dialog, int indexSelected,
-                                                    boolean isChecked) {
-                                    if (isChecked) {
-                                        selectedCategories.add(indexSelected);
-                                    } else if (selectedCategories.contains(indexSelected)) {
-                                        selectedCategories.remove(Integer.valueOf(indexSelected));
-                                    }
-                                }
-                            })
-                            // Set the action buttons
-                            .setPositiveButton("Done", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int id) {
-                                    newUserRequest(categories, selectedCategories);
-                                }
-                            });
-                    dialog = builder.create();
-                    dialog.show();
-                }
-            }
-        });
-    }
-
-    private void newUserRequest(final CharSequence[] categories, final ArrayList selectedCategories) {
+    private void newUserRequest() {
         GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(),
                 new GraphRequest.GraphJSONObjectCallback() {
                     @Override
@@ -164,11 +125,10 @@ public class LoginActivity extends Activity {
                         if (jsonObject != null) {
                             // add userDetails to parse
                             UserRepository.addUserDetails(new UserDetails(jsonObject));
-                            // add user categories
-                            UserCategoryRepository.addUsersCategories(categories, selectedCategories);
 
                             // go to main activity
                             Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                            intent.putExtra("firstLogin", "notNull");
                             startActivity(intent);
                             finish();
 

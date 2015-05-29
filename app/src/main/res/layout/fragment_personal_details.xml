@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context="activities.MainActivity$PlaceholderFragment" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Username"
+            android:textStyle="bold" />
+        <EditText
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:hint="Enter your username"
+            android:id="@+id/userName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="First Name"
+            android:textStyle="bold" />
+        <EditText
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:hint="Enter your first name"
+            android:id="@+id/firstName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Last Name"
+            android:textStyle="bold" />
+        <EditText
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:hint="Enter your last name"
+            android:id="@+id/lastName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="E-mail"
+            android:textStyle="bold" />
+        <EditText
+            android:layout_width="249dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:hint="Enter your Email"
+            android:id="@+id/email" />
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:text="Select Your favorite sports"
+        android:id="@+id/categoriesDialog"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/rounded_corner"
+        android:layout_gravity="center_horizontal" />
+    <Button
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:text="Save Changes"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="8dp"
+        android:id="@+id/save"
+        android:background="@drawable/rounded_corner"
+        android:layout_gravity="center|bottom|" />
+
+</LinearLayout>

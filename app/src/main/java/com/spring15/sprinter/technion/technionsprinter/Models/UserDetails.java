@@ -27,6 +27,7 @@ public class UserDetails  extends ParseObject{
         super();
         try {
             put("facebookId", jsonObject.getLong("id"));
+            put("userName", "");
             put("firstName", jsonObject.getString("first_name"));
             put("lastName", jsonObject.getString("last_name"));
             put("email", jsonObject.getString("email") != null ? jsonObject.getString("email") : "");
@@ -36,8 +37,14 @@ public class UserDetails  extends ParseObject{
         }
     }
     public long getFacebookId(){ return getLong("facebookId"); }
+    public String getUserName() { return getString("userName"); }
     public String getFirstName(){ return getString("firstName"); }
     public String getLastName(){ return getString("lastName"); }
     public String getEmail(){ return getString("email"); }
     public ParseUser getUser(){ return getParseUser("user"); }
+
+    public void setUserName(String userName) { put("userName", userName); }
+    public void setFirstName(String firstName) { put("firstName", firstName); }
+    public void setLastName(String lastName){ put("lastName", lastName);}
+    public void setEmail(String email){ put("email", email); }
 }

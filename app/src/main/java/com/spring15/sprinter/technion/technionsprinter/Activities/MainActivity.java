@@ -25,6 +25,7 @@ import android.widget.ListView;
 
 import com.spring15.sprinter.technion.technionsprinter.Fragments.Categories;
 import com.spring15.sprinter.technion.technionsprinter.Fragments.Groups;
+import com.spring15.sprinter.technion.technionsprinter.Fragments.PersonalDetails;
 import com.spring15.sprinter.technion.technionsprinter.R;
 
 
@@ -132,6 +133,10 @@ public class MainActivity extends ActionBarActivity {
         }
 
     private void selectItem(int position) {
+        if(getIntent().getStringExtra("firstLogin") != null){
+            position = 2;
+        }
+
         // update the main content by replacing fragments
         Fragment fragment;
         switch (position) {
@@ -142,7 +147,7 @@ public class MainActivity extends ActionBarActivity {
                 fragment = new Groups();
                 break;
             case 2:
-                fragment = new Categories();
+                fragment = new PersonalDetails();
                 break;
             case 3:
                 fragment = new Categories();
