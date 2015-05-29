@@ -34,7 +34,7 @@ public class Group extends ParseObject {
     public int getLevel(){
         return getInt("level");
     }
-    public ParseUser getUser(){ return getParseUser("creator"); }
+    public ParseUser getCreator(){ return getParseUser("creator"); }
     public Category getCategory()  {
         return (Category) getParseObject("category");
     }

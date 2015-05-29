@@ -27,6 +27,7 @@ import com.spring15.sprinter.technion.technionsprinter.Fragments.Categories;
 import com.spring15.sprinter.technion.technionsprinter.Fragments.Groups;
 import com.spring15.sprinter.technion.technionsprinter.Fragments.Messages;
 import com.spring15.sprinter.technion.technionsprinter.Fragments.PersonalDetails;
+import com.spring15.sprinter.technion.technionsprinter.Fragments.Settings;
 import com.spring15.sprinter.technion.technionsprinter.R;
 
 
@@ -151,7 +152,7 @@ public class MainActivity extends ActionBarActivity {
                 fragment = new PersonalDetails();
                 break;
             case 3:
-                fragment = new Categories();
+                fragment = new Settings();
                 break;
             case 4:
                 Intent intent = new Intent(this, LoginActivity.class);
@@ -209,7 +210,7 @@ public class MainActivity extends ActionBarActivity {
     public void goToCategoryGroup(String categoryName, String categoryObjectId) {
         Fragment fragment = new Groups();
         Bundle args = new Bundle();
-        args.putInt(MainActivity.ARG_MENU_NUMBER, 1);
+        args.putInt(MainActivity.ARG_MENU_NUMBER, 0);
         args.putString("categoryObjectId", categoryObjectId);
         fragment.setArguments(args);
 
@@ -221,11 +222,11 @@ public class MainActivity extends ActionBarActivity {
         setTitle(categoryName + " activities");
     }
 
-    public void goToGroupMessages(String title, String objectId) {
+    public void goToGroupMessages(String title, String groupObjectId) {
         Fragment fragment = new Messages();
         Bundle args = new Bundle();
-        args.putInt(MainActivity.ARG_MENU_NUMBER, 1);
-        args.putString("groupObjectId", objectId);
+        args.putInt(MainActivity.ARG_MENU_NUMBER, 0);
+        args.putString("groupObjectId", groupObjectId);
         fragment.setArguments(args);
 
         FragmentManager fragmentManager = getFragmentManager();

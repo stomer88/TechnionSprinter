@@ -1,0 +1,92 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/llSend"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:background="#ffffff"
+android:paddingBottom="10dp"
+android:paddingLeft="0dp"
+android:paddingRight="0dp"
+android:paddingTop="5dp"
+tools:context="activities.MainActivity$PlaceholderFragment">
+
+<TextView
+    android:id="@+id/groupTime"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Time: 14:45"
+    android:layout_alignParentTop="true" />
+
+<TextView
+    android:id="@+id/groupLocation"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/groupLevel"
+    android:layout_toRightOf="@+id/groupTime"
+    android:layout_toEndOf="@+id/groupTime"
+    android:layout_marginLeft="45dp"
+    android:layout_marginStart="45dp" />
+
+<TextView
+    android:id="@+id/groupSize"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_below="@+id/groupTime"
+    android:layout_alignParentLeft="true" />
+
+<TextView
+    android:id="@+id/groupLevel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/groupTime"
+    android:layout_alignLeft="@+id/groupLocation"
+    android:layout_alignStart="@+id/groupLocation" />
+
+<ListView
+    android:id="@+id/listview"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/groupSize"
+    android:paddingTop="10dp"
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp"
+    android:background="@drawable/rounded_corner"
+    android:transcriptMode="alwaysScroll"
+    android:layout_above="@+id/sendMessage" />
+
+<EditText
+    android:id="@+id/sendMessage"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_alignBottom="@+id/sendButton"
+    android:layout_toLeftOf="@+id/sendButton"
+    android:gravity="top"
+    android:singleLine="true"
+    android:hint="Enter message here"
+    android:imeOptions="actionSend"
+    android:inputType="textShortMessage"
+    android:layout_alignTop="@+id/sendButton" />
+<Button
+    android:id="@+id/sendButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical|right"
+    android:layout_marginRight="8dp"
+    android:paddingRight="10dp"
+    android:text="Send"
+    android:textSize="18sp"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
