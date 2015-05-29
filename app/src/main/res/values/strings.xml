@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Technion Sprinter</string>
+    <string name="facebook_app_id">1617857278457567</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+    <string-array name="menu_list">
+        <item>Categories</item>
+        <item>My Groups</item>
+        <item>Personal Details</item>
+        <item>Help</item>
+        <item>Logout</item>
+    </string-array>
+
+</resources>
