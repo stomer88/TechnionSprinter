@@ -1,7 +1,6 @@
 package com.spring15.sprinter.technion.technionsprinter.Models;
 
 import com.parse.ParseClassName;
-import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
@@ -10,6 +9,9 @@ import java.util.Date;
 @ParseClassName("Groups")
 public class Group extends ParseObject {
 
+    public Group(){
+        super();
+    }
     public Group(String title, String location, int maxSize, Date date, int level, Category category){
         super();
         put("title", title);
