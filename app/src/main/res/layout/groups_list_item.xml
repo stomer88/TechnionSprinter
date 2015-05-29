@@ -20,31 +20,29 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:id="@+id/title"
+            android:textColor="#000000"
             style="@style/Base.TextAppearance.AppCompat.Title"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
-            android:id="@+id/time"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:id="@+id/location"
+            android:textColor="#000000"
+            android:id="@+id/timeAndLocation"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
+            android:textColor="#000000"
             android:id="@+id/size"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
+            android:textColor="#000000"
             android:id="@+id/level"/>
 
 

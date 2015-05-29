@@ -5,7 +5,7 @@
     <string name="drawer_close">Close navigation drawer</string>
 
     <string-array name="menu_list">
-        <item>Categories</item>
+        <item>Home</item>
         <item>My Groups</item>
         <item>Personal Details</item>
         <item>Settings</item>

@@ -45,14 +45,11 @@ public class GroupsAdapter extends ParseQueryAdapter<Group> {
         TextView titleTextView = (TextView) v.findViewById(R.id.title);
         titleTextView.setText(group.getTitle());
 
-        TextView timeTextView = (TextView) v.findViewById(R.id.time);
-        titleTextView.setText(group.getTime().toString());
-
-        TextView locationTextView = (TextView) v.findViewById(R.id.location);
-        titleTextView.setText(group.getLocation());
+        TextView timeAndLocationTextView = (TextView) v.findViewById(R.id.timeAndLocation);
+        timeAndLocationTextView.setText(group.getTime().toString().substring(0, 19) + ", " + group.getLocation());
 
         TextView sizeTextView = (TextView) v.findViewById(R.id.size);
-        titleTextView.setText(group.getSize() + "/" + group.getMaxSize());
+        sizeTextView.setText(group.getSize() + "/" + group.getMaxSize());
 
         TextView levelTextView = (TextView) v.findViewById(R.id.level);
         String level;
@@ -63,7 +60,7 @@ public class GroupsAdapter extends ParseQueryAdapter<Group> {
             case 3:level = "Pro"; break;
             default:level = "Easy"; break;
         }
-        titleTextView.setText(level);
+        levelTextView.setText(level);
 
         return v;
     }

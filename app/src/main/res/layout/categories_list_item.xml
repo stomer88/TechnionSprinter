@@ -11,7 +11,7 @@
         android:id="@+id/title"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
-        android:textColor="#4A8CFF"
+        android:textColor="#000000"
         style="@style/Base.TextAppearance.AppCompat.Title"
         />
 
