@@ -57,8 +57,6 @@ public class Categories extends Fragment {
         getActivity().setTitle(menuTitle);
 
         // Prepare Data for the View
-        final List<String> list = new ArrayList<String>();
-
         ParseQueryAdapter.QueryFactory<UserCategory> factory = UserCategoryRepository.getUserCategories();
         CategoriesAdapter adapter = new CategoriesAdapter(
                 getActivity().getApplicationContext(), factory, R.layout.categories_list_item);

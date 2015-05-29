@@ -7,6 +7,7 @@ import com.parse.Parse;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseObject;
 import com.spring15.sprinter.technion.technionsprinter.Models.Category;
+import com.spring15.sprinter.technion.technionsprinter.Models.Group;
 import com.spring15.sprinter.technion.technionsprinter.Models.UserCategory;
 import com.spring15.sprinter.technion.technionsprinter.Models.UserDetails;
 
@@ -20,6 +21,7 @@ public class MyApplication extends Application {
         ParseObject.registerSubclass(UserDetails.class);
         ParseObject.registerSubclass(Category.class);
         ParseObject.registerSubclass(UserCategory.class);
+        ParseObject.registerSubclass(Group.class);
 
         // Enable Local Datastore.
         Parse.enableLocalDatastore(this);

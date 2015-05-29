@@ -25,6 +25,7 @@ import android.widget.ListView;
 
 import com.spring15.sprinter.technion.technionsprinter.Fragments.Categories;
 import com.spring15.sprinter.technion.technionsprinter.Fragments.Groups;
+import com.spring15.sprinter.technion.technionsprinter.Fragments.Messages;
 import com.spring15.sprinter.technion.technionsprinter.Fragments.PersonalDetails;
 import com.spring15.sprinter.technion.technionsprinter.R;
 
@@ -122,7 +123,7 @@ public class MainActivity extends ActionBarActivity {
             }
         }
 
-	/* The click listner for ListView in the navigation drawer */
+    /* The click listner for ListView in the navigation drawer */
         private class DrawerItemClickListener implements
                 ListView.OnItemClickListener {
             @Override
@@ -217,8 +218,21 @@ public class MainActivity extends ActionBarActivity {
                 .replace(R.id.content_frame, fragment).commit();
 
         // update selected item and title, then close the drawer
-        mDrawerList.setItemChecked(1, true);
         setTitle(categoryName + " groups");
     }
+
+    public void goToGroupMessages(String title, String objectId) {
+        Fragment fragment = new Messages();
+        Bundle args = new Bundle();
+        args.putInt(MainActivity.ARG_MENU_NUMBER, 1);
+        args.putString("groupObjectId", objectId);
+        fragment.setArguments(args);
+
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.content_frame, fragment).commit();
+        setTitle(title);
+    }
+
 
 }
