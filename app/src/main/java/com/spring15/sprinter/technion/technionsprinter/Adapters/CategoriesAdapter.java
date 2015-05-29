@@ -15,6 +15,7 @@ import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 import com.spring15.sprinter.technion.technionsprinter.Models.UserCategory;
 import com.spring15.sprinter.technion.technionsprinter.R;
+import com.squareup.picasso.Picasso;
 
 public class CategoriesAdapter extends ParseQueryAdapter<UserCategory> {
 
@@ -35,13 +36,8 @@ public class CategoriesAdapter extends ParseQueryAdapter<UserCategory> {
         ParseImageView categoryImage = (ParseImageView) v.findViewById(R.id.icon);
         ParseFile photoFile = userCategory.getCategory().getImage();
         if (photoFile != null) {
-            categoryImage.setParseFile(photoFile);
-            categoryImage.loadInBackground(new GetDataCallback() {
-                @Override
-                public void done(byte[] data, ParseException e) {
-                    // nothing to do
-                }
-            });
+            String chatImageFile = photoFile.getUrl();
+            Picasso.with(getContext()).load(chatImageFile).into(categoryImage);
         }
 
         TextView titleTextView = (TextView) v.findViewById(R.id.title);

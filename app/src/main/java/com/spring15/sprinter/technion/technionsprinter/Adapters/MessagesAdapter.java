@@ -35,8 +35,8 @@ public class MessagesAdapter extends ParseQueryAdapter<Message> {
 
         super.getItemView(message, v, parent);
 
-        final ImageView senderIsMe = (ImageView) v.findViewById(R.id.iconMe);
-        final ImageView senderIsOther = (ImageView) v.findViewById(R.id.iconOther);
+        final ParseImageView senderIsMe = (ParseImageView) v.findViewById(R.id.iconMe);
+        final ParseImageView senderIsOther = (ParseImageView) v.findViewById(R.id.iconOther);
         ParseQuery<UserDetails> query = ParseQuery.getQuery("UserDetails");
         query.whereEqualTo("user", message.getSender());
         query.getFirstInBackground(new GetCallback<UserDetails>() {
@@ -44,12 +44,12 @@ public class MessagesAdapter extends ParseQueryAdapter<Message> {
                 if (e == null) {
                     if(object.getUser().getObjectId() == ParseUser.getCurrentUser().getObjectId()) {
                         Picasso.with(getContext())
-                                .load("http://graph.facebook.com/" + object.getFacebookId() + "/picture?type=normal")
+                                .load("https://graph.facebook.com/" + object.getFacebookId() + "/picture?type=normal")
                                 .into(senderIsMe);
                     }
                     else{
                         Picasso.with(getContext())
-                                .load("http://graph.facebook.com/" + object.getFacebookId() + "/picture?type=normal")
+                                .load("https://graph.facebook.com/" + object.getFacebookId() + "/picture?type=normal")
                                 .into(senderIsOther);
                     }
                 }

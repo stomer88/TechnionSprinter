@@ -5,7 +5,7 @@
     android:background="#ffffff"
     >
 
-    <ImageView
+    <com.parse.ParseImageView
         android:layout_width="85dp"
         android:layout_height="100dp"
         android:id="@+id/icon"/>
