@@ -15,7 +15,7 @@
         style="@style/Base.TextAppearance.AppCompat.Title"
         />
 
-    <com.parse.ParseImageView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:id="@+id/icon"

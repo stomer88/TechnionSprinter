@@ -36,14 +36,15 @@ public class GroupsAdapter extends ParseQueryAdapter<Group> {
 
         super.getItemView(group, v, parent);
 
-        final ParseImageView groupImage = (ParseImageView) v.findViewById(R.id.icon);
+        final ImageView groupImage = (ImageView) v.findViewById(R.id.icon);
         ParseQuery<UserDetails> query = ParseQuery.getQuery("UserDetails");
         query.whereEqualTo("user", group.getCreator());
         query.getFirstInBackground(new GetCallback<UserDetails>() {
             public void done(UserDetails object, ParseException e) {
                 if (e == null) {
+                    String facebookId = object.get("facebookId").toString();
                     Picasso.with(getContext())
-                            .load("https://graph.facebook.com/" + object.getFacebookId() + "/picture?type=normal")
+                            .load("https://graph.facebook.com/" + facebookId + "/picture?type=normal")
                             .into(groupImage);
                 }
             }

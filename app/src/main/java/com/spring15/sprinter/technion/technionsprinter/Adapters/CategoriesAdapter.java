@@ -3,6 +3,7 @@ package com.spring15.sprinter.technion.technionsprinter.Adapters;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.parse.GetDataCallback;
@@ -33,7 +34,7 @@ public class CategoriesAdapter extends ParseQueryAdapter<UserCategory> {
 
         super.getItemView(userCategory, v, parent);
 
-        ParseImageView categoryImage = (ParseImageView) v.findViewById(R.id.icon);
+        ImageView categoryImage = (ImageView) v.findViewById(R.id.icon);
         ParseFile photoFile = userCategory.getCategory().getImage();
         if (photoFile != null) {
             String chatImageFile = photoFile.getUrl();
