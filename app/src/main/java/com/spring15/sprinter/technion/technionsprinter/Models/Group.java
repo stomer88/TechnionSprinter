@@ -9,9 +9,7 @@ import java.util.Date;
 @ParseClassName("Groups")
 public class Group extends ParseObject {
 
-    public Group(){
-        super();
-    }
+    public Group(){ super(); }
     public Group(String title, String location, int maxSize, Date date, int level, Category category){
         super();
         put("title", title);
@@ -28,11 +26,19 @@ public class Group extends ParseObject {
         return getString("title");
     }
     public String getLocation(){return getString("location");}
-    public int getMaxSize(){return getInt("maxSize");}
-    public int getSize(){return getInt("size");}
+    public String getSize(){return getInt("size") + "/" + getInt("maxSize");}
     public Date getTime(){ return getDate("time"); }
-    public int getLevel(){
-        return getInt("level");
+    public String getLevel(){
+        int l = getInt("level");
+        String level;
+        switch(l){
+            case 0:level = "Easy"; break;
+            case 1:level = "Medium"; break;
+            case 2:level = "Hard"; break;
+            case 3:level = "Pro"; break;
+            default:level = "Easy"; break;
+        }
+        return level;
     }
     public ParseUser getCreator(){ return getParseUser("creator"); }
     public Category getCategory()  {

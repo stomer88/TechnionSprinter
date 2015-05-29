@@ -57,10 +57,10 @@ public class Messages extends Fragment {
             query.getInBackground(groupObjectId, new GetCallback<Group>() {
                 public void done(final Group item, ParseException e) {
                     if (e == null) {
-                        time.setText(item.getTime().toString().substring(0,19));
+                        time.setText(item.getTime().toString().substring(0, 19));
                         location.setText(item.getLocation());
                         level.setText(item.getLevel());
-                        maxSize.setText(item.getSize() + "/" + item.getMaxSize());
+                        maxSize.setText(item.getSize());
 
                         // item was found
                         ParseQueryAdapter.QueryFactory<Message> factory = MessageRepository.getGroupMessages(item);

@@ -4,6 +4,8 @@
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="Choose_Level">Choose a level</string>
+    <string name="enterMessageHere">Enter message here</string>
+    <string name="send">Send</string>
 
     <string-array name="menu_list">
         <item>Home</item>
