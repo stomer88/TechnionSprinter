@@ -7,16 +7,16 @@ import com.parse.ParseUser;
 
 import java.util.Date;
 
-@ParseClassName("Group")
+@ParseClassName("Groups")
 public class Group extends ParseObject {
 
-    public Group(String title, String location, int maxSize, int level, Category category){
+    public Group(String title, String location, int maxSize, Date date, int level, Category category){
         super();
         put("title", title);
         put("location", location);
         put("size", 1);
         put("maxSize", maxSize);
-        put("time", new Date());
+        put("time", date);
         put("level", level);
         put("creator", ParseUser.getCurrentUser());
         put("category", category);
@@ -36,8 +36,5 @@ public class Group extends ParseObject {
     public Category getCategory()  {
         return (Category) getParseObject("category");
     }
-
-
-
 
 }

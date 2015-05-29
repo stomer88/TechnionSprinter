@@ -25,6 +25,7 @@ import com.spring15.sprinter.technion.technionsprinter.Repositories.CategoryRepo
 import com.spring15.sprinter.technion.technionsprinter.Repositories.GroupRepository;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Groups extends Fragment {
     public static final String ARG_MENU_NUMBER = "menu_number";
@@ -77,7 +78,7 @@ public class Groups extends Fragment {
                         addActivityDialog.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                GroupRepository.addGroup(new Group("New Group", "Haifa", 3, 0, item));
+                                GroupRepository.addGroup(new Group("New Group", "Haifa", 3, new Date(), 0, item));
                             }
                         });
                     }
