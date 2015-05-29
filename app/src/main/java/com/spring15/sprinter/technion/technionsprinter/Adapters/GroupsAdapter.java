@@ -30,11 +30,11 @@ public class GroupsAdapter extends ParseQueryAdapter<Group> {
 
         super.getItemView(group, v, parent);
 
-        ParseImageView mealImage = (ParseImageView) v.findViewById(R.id.icon);
+        ParseImageView groupImage = (ParseImageView) v.findViewById(R.id.icon);
         ParseFile photoFile = group.getCategory().getImage();
         if (photoFile != null) {
-            mealImage.setParseFile(photoFile);
-            mealImage.loadInBackground(new GetDataCallback() {
+            groupImage.setParseFile(photoFile);
+            groupImage.loadInBackground(new GetDataCallback() {
                 @Override
                 public void done(byte[] data, ParseException e) {
                     // nothing to do
@@ -44,6 +44,27 @@ public class GroupsAdapter extends ParseQueryAdapter<Group> {
 
         TextView titleTextView = (TextView) v.findViewById(R.id.title);
         titleTextView.setText(group.getTitle());
+
+        TextView timeTextView = (TextView) v.findViewById(R.id.time);
+        titleTextView.setText(group.getTime().toString());
+
+        TextView locationTextView = (TextView) v.findViewById(R.id.location);
+        titleTextView.setText(group.getLocation());
+
+        TextView sizeTextView = (TextView) v.findViewById(R.id.size);
+        titleTextView.setText(group.getSize() + "/" + group.getMaxSize());
+
+        TextView levelTextView = (TextView) v.findViewById(R.id.level);
+        String level;
+        switch(group.getLevel()){
+            case 0:level = "Easy"; break;
+            case 1:level = "Medium"; break;
+            case 2:level = "Hard"; break;
+            case 3:level = "Pro"; break;
+            default:level = "Easy"; break;
+        }
+        titleTextView.setText(level);
+
         return v;
     }
 

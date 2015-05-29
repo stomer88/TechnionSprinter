@@ -32,11 +32,11 @@ public class CategoriesAdapter extends ParseQueryAdapter<UserCategory> {
 
         super.getItemView(userCategory, v, parent);
 
-        ParseImageView mealImage = (ParseImageView) v.findViewById(R.id.icon);
+        ParseImageView categoryImage = (ParseImageView) v.findViewById(R.id.icon);
         ParseFile photoFile = userCategory.getCategory().getImage();
         if (photoFile != null) {
-            mealImage.setParseFile(photoFile);
-            mealImage.loadInBackground(new GetDataCallback() {
+            categoryImage.setParseFile(photoFile);
+            categoryImage.loadInBackground(new GetDataCallback() {
                 @Override
                 public void done(byte[] data, ParseException e) {
                     // nothing to do
