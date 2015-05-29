@@ -39,7 +39,7 @@ public class Groups extends Fragment {
                              Bundle savedInstanceState) {
 
         // Fragment Preparation
-        final View rootView = inflater.inflate(R.layout.fragment_categories, container,
+        final View rootView = inflater.inflate(R.layout.fragment_groups, container,
                 false);
         int i = getArguments().getInt(ARG_MENU_NUMBER);
 
